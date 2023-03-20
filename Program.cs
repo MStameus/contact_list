@@ -11,11 +11,7 @@
             public string address { get; set; }
             public string birthdate { get; set; }
 
-            public Person(string ph, string a) 
-            {
-                phone = ph;
-                address = a;
-            }
+            
 
         }
         public static void Main(string[] args)
