@@ -5,7 +5,18 @@
         static Person[] contactList = new Person[100];
         class Person
         {
-            public string persname, surname, phone, address, birthdate;
+            public string persname { get; set; }
+            public string surname { get; set; }
+            public string phone { get; set; }
+            public string address { get; set; }
+            public string birthdate { get; set; }
+
+            public Person(string ph, string a) 
+            {
+                phone = ph;
+                address = a;
+            }
+
         }
         public static void Main(string[] args)
         {
