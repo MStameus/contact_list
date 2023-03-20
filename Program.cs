@@ -52,7 +52,7 @@
                             foreach (Person p in contactList)
                             {
                                 if (p != null)
-                                    outfile.WriteLine($"{p.persname};{p.surname};{p.phone};{p.address};{p.birthdate}");
+                                    outfile.WriteLine($"{p.persname}|{p.surname}|{p.phone}|{p.address}|{p.birthdate}");
                             }
                         }
                     }
@@ -108,17 +108,17 @@
                 while ((line = infile.ReadLine()) != null)
                 {
                     Console.WriteLine(line);
-                    string[] attrs = line.Split('|');
+                    string[] attrs = line.Split('|'); // gör array för attribut på varje line i filen för att användeas till ny person p
                     Person p = new Person();
                     p.persname = attrs[0];
                     p.surname = attrs[1];
-                    string[] phones = attrs[2].Split(';');
-                    p.phone = phones[0];
-                    string[] addresses = attrs[3].Split(';');
+                    string[] phones = attrs[2].Split(';'); //delar upp om det finns flera telefonnummer i en egen array av nummer för varje 
+                    p.phone = phones[0];  //gör index 0 i telefon arrayen till nummret i new p personen
+                    string[] addresses = attrs[3].Split(';'); // gör samma med addres som telefonnummer
                     p.address = addresses[0];
                     for (int ix = 0; ix < contactList.Length; ix++)
                     {
-                        if (contactList[ix] == null)
+                        if (contactList[ix] == null)        //loopar contactlist arrayen och lägger till nya objektet som skapats om index är null /bryter.
                         {
                             contactList[ix] = p;
                             break;
